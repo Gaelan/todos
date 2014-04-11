@@ -15,10 +15,16 @@ if (Meteor.isClient) {
       // submits.
       event.preventDefault();
 
+      // Find the text box in the template.
+      var textBox = template.find("#addTodoBox")
+
       // Actually add the todo to the database.
-      return Todos.insert({
-        name: template.find("#addTodoBox").value
+      Todos.insert({
+        name: textBox.value
       });
+
+      // Empty the text box for the next todo.
+      textBox.value = '';
     }
   });
 }
