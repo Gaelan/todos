@@ -1,0 +1,27 @@
+<head>
+  <title>Todo List</title>
+</head>
+
+<body>
+  <ul>
+    {{#each todos}}
+      <!-- "this" becomes the current todo. When we pass this to the todo
+           template, "this" within the todo template also becomes the todo. -->
+      {{> todo this}}
+    {{/each}}
+  </ul>
+  {{> addForm}}
+</body>
+
+<template name="addForm">
+  <form>
+    <input id="addTodoBox" placeholder="finish writing code for todo list" />
+  </form>
+</template>
+
+<template name="todo">
+  <li>
+    <!-- You can access properties of "this" like this. -->
+    {{name}}
+  </li>
+</template>
