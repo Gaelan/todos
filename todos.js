@@ -4,11 +4,13 @@ Todos = new Meteor.Collection("todos");
 
 if (Meteor.isClient) {
   // Allow the template to access a list of todos.
+  // Say more here about how UI.body works.
   UI.body.todos = function() {
-    return Todos.find();
+    return Todos.find(); // What is returned?
   };
 
   // The magic behind the add form.
+  // Explain the naming convention.
   Template.addForm.events({
     "submit": function(event, template) {
       // Make it so that the browser doesn't trigger an HTTP post when the user
